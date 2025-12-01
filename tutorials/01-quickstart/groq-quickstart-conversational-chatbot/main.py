@@ -2,6 +2,9 @@
 
 import os
 from groq import Groq
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Create the Groq client
 client = Groq(
@@ -25,7 +28,7 @@ while True:
   # Append the user input to the chat history
   chat_history.append({"role": "user", "content": user_input})
 
-  response = client.chat.completions.create(model="llama3-70b-8192",
+  response = client.chat.completions.create(model="llama-3.3-70b-versatile",
                                             messages=chat_history,
                                             max_tokens=100,
                                             temperature=1.2)
